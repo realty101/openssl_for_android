@@ -36,8 +36,11 @@ jobs:
       - name: Download Android NDK
         id: download_ndk
         run: |
-          aria2c -o android-ndk-${{fromJSON(matrix.info).ANDROID_NDK}}.zip https://dl.google.com/android/repository/android-ndk-${{fromJSON(matrix.info).ANDROID_NDK}}-linux.zip
-          unzip android-ndk-${{fromJSON(matrix.info).ANDROID_NDK}}.zip
+          ## aria2c -o android-ndk-${{fromJSON(matrix.info).ANDROID_NDK}}.zip https://dl.google.com/android/repository/android-ndk-${{fromJSON(matrix.info).ANDROID_NDK}}-linux.zip
+          ## unzip android-ndk-${{fromJSON(matrix.info).ANDROID_NDK}}.zip
+          aria2c -o android-ndk-${{fromJSON(matrix.info).ANDROID_NDK}}-linux-x86_64.zip \
+          https://dl.google.com/android/repository/android-ndk-${{fromJSON(matrix.info).ANDROID_NDK}}-linux-x86_64.zip
+          unzip android-ndk-${{fromJSON(matrix.info).ANDROID_NDK}}-linux-x86_64.zip
           echo "::set-output name=status::success"
 
       - name: Download OpenSSL
