@@ -48,8 +48,8 @@ function build(){
 
     cd ${OPENSSL_PATH}
 
-    export ANDROID_NDK_HOME=${ANDROID_NDK_PATH}
-    export ANDROID_NDK=${ANDROID_NDK_PATH}
+    # export ANDROID_NDK_HOME=${ANDROID_NDK_PATH}
+    # export ANDROID_NDK=${ANDROID_NDK_PATH}
     export ANDROID_NDK_ROOT=${ANDROID_NDK_PATH}
     export PATH=${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/${PLATFORM}-x86_64/bin:$PATH
     export CXXFLAGS="-fPIC -Os"
@@ -71,8 +71,8 @@ function build(){
     fi
 
     make -j$(nproc)
-    # make install
-    make install_sw
+    make install
+    # make install_sw
 
     echo "Build completed! Check output libraries in ${OUTPUT_PATH}"
 }
