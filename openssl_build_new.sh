@@ -71,8 +71,8 @@ function build(){
     fi
 
     make -j$(nproc)
-    make install
-    # make install_sw
+    # make install
+    make install_sw
 
     echo "Build completed! Check output libraries in ${OUTPUT_PATH}"
 }
